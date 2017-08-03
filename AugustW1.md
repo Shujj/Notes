@@ -46,3 +46,7 @@ Java Native Interface
 Proxy class stores the instance of actual class. Store pointer as `long` or `int`.
 Load shared lib (.so or .dll)
 
+# Weak_ptr
+When you want a reference for possible future use but don't want to control the lifetime of the object. Hmm why not use a raw pointer.. because when you might need it you will want to "lock" it down i.e prevent it from being destroyed ???
+* `weak_ptr` detects dangle only when lifetime of actual object is managed by `shared_ptr`
+
