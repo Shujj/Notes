@@ -39,3 +39,10 @@ virtual const char* what() const noexcept;
 # Linking C++
 * Static vs dynamic libraries
 
+# Calling C++ from Java
+[Link](https://thebreakfastpost.com/2012/01/21/wrapping-a-c-library-with-jni-introduction/)
+
+Java Native Interface
+Proxy class stores the instance of actual class. Store pointer as `long` or `int`.
+Load shared lib (.so or .dll)
+
