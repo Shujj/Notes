@@ -27,12 +27,9 @@ val ab : Option[List[Z]]
 val function : Z => Option[List[ZResult]]
 // trying to define flatMap[T[U[_]]] in terms of flatMap[T[_]] and flatMap[U[_]]
 ab.flatmap(_.flatmap(function))
-// this works but need info about the inner monad
-ab.flatmap(x => x match {
-                  case List()
-                  case Nil => None // unit of outer Monad unit()
-                }
-)
+// this works but need info about the inner monad 
+// need return type to be Option[List[ZResult]]
+ab.flatMap(x => x.flatMap(y => function(y)))
 ```
 The inner flatMap works only with `Z => List[Z]` We need information about `b type` so that we can apply `function` properly on `a type` i.e we need to free `Z` from the clutches of `List[Z]` which requires 
 
